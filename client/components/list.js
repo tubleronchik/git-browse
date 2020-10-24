@@ -1,22 +1,37 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react'
 import axios from 'axios' 
-import { useParams } from 'react-router-dom' 
+import { useParams, Link } from 'react-router-dom' 
 import Head from './head'
 
-const Header = (props) => {
-  
-
+const Header = ({ userName }) => {
+  return (
+    <div className="flex items-center justify-rcente">
+      <div 
+        id="repository-name"
+        className="bg-teal-400 text-black font-bold rounded-lg border shadow-lg p-3"
+      >
+        {userName}
+      </div>
+      <div
+        id="go-back"
+        className="bg-teal-400 text-black font-bold rounded-lg border shadow-lg p-3"
+      >
+        <Link to="/">Go Back</Link>
+      </div>
+    </div>
+  )
 }
+
 const Repo = (props) => {
   const repo = props
   return (
-    <div>
+    <div className="flex items-center justify-center">
       <div 
-        className="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-5"
+        className="bg-teal-500 text-white font-bold rounded-lg border shadow-lg p-5"
       >
-        <div key={repo.id} style={{display: "flex"}}>
-          <div style={{width: '250px'}}>{repo.name}</div> 
+        <div key={repo.id} style={{display: "list-item"}}>
+          <div style={{width: '300px'}}>{repo.name}</div> 
         </div>
       </div>  
     </div>  
@@ -48,8 +63,9 @@ const List = () => {
   return (
     <div>
       <Head title="Hello" />
-      <GettingList userName={userName} />
       <Header userName={userName} />
+      <GettingList userName={userName} />
+
     </div>
   )
 }
