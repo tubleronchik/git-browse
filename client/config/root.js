@@ -13,7 +13,7 @@ import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
 import Search from '../components/search'
 import List from '../components/list'
-
+import Readme from '../components/readme'
 import Startup from './startup'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
@@ -86,7 +86,7 @@ export default (props) => {
           <Switch>
             <Route exact path="/" component={() => <Search />} />
             <Route exact path="/:userName" component={() => <List />} />
-            <Route exct patch="/:userName/:repositoryName" component={() => <readme />} />
+            <Route exct patch="/:userName/:repositoryName" component={() => <Readme />} />
             <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>

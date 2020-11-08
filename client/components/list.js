@@ -25,13 +25,16 @@ const Header = ({ userName }) => {
 
 const Repo = (props) => {
   const repo = props
+  const userName = repo.owner.login
+  const repositoryName = repo.name
+
   return (
     <div className="flex items-center justify-center">
       <div 
         className="bg-teal-500 text-white font-bold rounded-lg border shadow-lg p-5"
       >
         <div key={repo.id} style={{display: "list-item"}}>
-          <div style={{width: '300px'}}>{repo.name}</div> 
+          <Link style={{width: '300px'}} to={`/${userName}/${repositoryName}`}>{repositoryName}</Link> 
         </div>
       </div>  
     </div>  
