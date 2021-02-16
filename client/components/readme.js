@@ -4,7 +4,7 @@ import React from 'react'
 // import axios from 'axios' 
 import { useParams } from 'react-router-dom' 
 import Head from './head'
- //непонятно, почему не выводит имя и имя репы
+ // непонятно, почему не выводит имя и имя репы
 const Readme = () => {
   const { userName, repositoryName } = useParams()
   // const { repositoryName } = useParams()
